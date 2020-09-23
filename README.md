@@ -113,3 +113,43 @@ const Header = () => {
 
 export default Header;
 ```
+
+`Screen.js`
+
+```javascript
+import React, { useContext } from "react";
+import { UserContext } from "./context";
+import Header from "./Header";
+
+const Screen = () => {
+  const { logUserIn } = useContext(UserContext);
+  return (
+    <div>
+      <Header />
+      <h1>First Screen</h1>
+      <button onClick={logUserIn}>Log user in</button>
+    </div>
+  );
+};
+
+export default Screen;
+```
+
+`App.js`
+
+```javascript
+import React from "react";
+import UserContextProvider from "./context";
+import Screen from "./Screen";
+
+function App() {
+  return (
+    <UserContextProvider value={{ name: "hun" }}>
+      {/*다른 사용될 모든 컴포넌트*/}
+      <Screen />
+    </UserContextProvider>
+  );
+}
+
+export default App;
+```
