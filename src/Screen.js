@@ -1,13 +1,13 @@
-import React from "react";
-import { useFns } from "./context";
+import React, { useContext } from "react";
+import { UserContext } from "./context";
 import Header from "./Header";
 
 const Screen = () => {
-  const { logUserIn } = useFns();
+  const { logUserIn } = useContext(UserContext);
   return (
     <div>
       <Header />
-      <h1>First screen</h1>
+      <h1>First Screen</h1>
       <button onClick={logUserIn}>Log user in</button>
     </div>
   );

@@ -1,14 +1,16 @@
 import React, { useContext } from "react";
-import { useUser } from "./context";
+import { UserContext } from "./context";
 
 const Header = () => {
-  const { name, loggedIn } = useUser();
-
+  const {
+    user: { name, loggedIn },
+  } = useContext(UserContext);
   return (
     <header>
-      <a href="#">Home</a> Hello, {name}, you are{" "}
-      {loggedIn ? "Log In!" : "Log Out!"}
+      <a href="#">Home</a> Hello, {name}, you are
+      {loggedIn ? "Log In" : "Log Out"}
     </header>
   );
 };
+
 export default Header;
