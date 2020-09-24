@@ -1,13 +1,13 @@
 import React from "react";
-import UserContextProvider from "./context";
+import Lang from "./context";
 import Screen from "./Screen";
+import translations from "./translations";
 
 function App() {
   return (
-    <UserContextProvider value={{ name: "hun" }}>
-      {/*다른 사용될 모든 컴포넌트*/}
+    <Lang defaultLang="en" translations={translations}>
       <Screen />
-    </UserContextProvider>
+    </Lang>
   );
 }
 
