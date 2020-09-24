@@ -153,3 +153,40 @@ function App() {
 
 export default App;
 ```
+
+## useReducer
+
+- Reducer 원리
+
+```javascript
+import React, { useReducer } from "react";
+
+// action은 단지 reducer정보를 주기 위한 argument, 변수명은 아무 상관이 없음.
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+    case "decrement":
+      return { count: state.count - 1 };
+    default:
+      throw new Error();
+  }
+};
+
+function App() {
+  // reduer 함수에서 return 한 객체가 state를 대체한다.
+  // useReducer가 reducer 함수를 실행한다.
+  // useReducer는 두 개의 argument를 가진다. 두 번째 argument는 초기값을 의미한다.
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+  return (
+    <>
+      Count: {state.count}
+      <button onClick={() => dispatch({ type: "decrement" })}>-</button>
+      <button onClick={() => dispatch({ type: "increment" })}>+</button>
+    </>
+  );
+}
+
+export default App;
+```
