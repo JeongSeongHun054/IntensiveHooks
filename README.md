@@ -163,27 +163,31 @@ import React, { useReducer } from "react";
 
 // action은 단지 reducer정보를 주기 위한 argument, 변수명은 아무 상관이 없음.
 
+const INCREMENT = "increment";
+const DECREMENT = "decrement";
+
 const reducer = (state, action) => {
-  switch (action.type) {
-    case "increment":
+  switch (type.action) {
+    case INCREMENT:
       return { count: state.count + 1 };
-    case "decrement":
+    case DECREMENT:
       return { count: state.count - 1 };
     default:
-      throw new Error();
+      return;
   }
 };
 
 function App() {
-  // reduer 함수에서 return 한 객체가 state를 대체한다.
-  // useReducer가 reducer 함수를 실행한다.
-  // useReducer는 두 개의 argument를 가진다. 두 번째 argument는 초기값을 의미한다.
+  // useReducer는 두 개의 argument를 가진다. 첫번째 arugement는 함수 두 번째 argument는 초기값을 의미한다.
+  // dispatch는 reducer에 action을 보내는 역할 그리고 reducer를 실행한다.
+  // dispatch를 통해서 실행된 reducer에서 return 된 값이 state로 대체가 된다.
+  // dispatch의 첫번 째 argument는 action에 할당된다.
   const [state, dispatch] = useReducer(reducer, { count: 0 });
   return (
     <>
-      Count: {state.count}
-      <button onClick={() => dispatch({ type: "decrement" })}>-</button>
-      <button onClick={() => dispatch({ type: "increment" })}>+</button>
+      <h1>{state.count}</h1>
+      <button onClick={() => dispatch({ type: INCREMENT })}>Add</button>
+      <button onClick={() => dispatch({ type: DECREMENT })}>Minus</button>
     </>
   );
 }

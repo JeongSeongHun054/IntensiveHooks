@@ -3,16 +3,16 @@ import React, { useReducer } from "react";
 const INCREMENT = "increment";
 const DECREMENT = "decrement";
 
-function reducer(state, action) {
-  switch (action.type) {
+const reducer = (state, action) => {
+  switch (type.action) {
     case INCREMENT:
       return { count: state.count + 1 };
     case DECREMENT:
       return { count: state.count - 1 };
     default:
-      throw new Error();
+      return;
   }
-}
+};
 
 function App() {
   const [state, dispatch] = useReducer(reducer, { count: 0 });
