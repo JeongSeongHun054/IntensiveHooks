@@ -178,7 +178,7 @@ const reducer = (state, action) => {
 };
 
 function App() {
-  // useReducer는 두 개의 argument를 가진다. 첫번째 arugement는 함수 두 번째 argument는 초기값을 의미한다.
+  // useReducer는 두 개의 argument를 가진다. 첫번째 arugement는 함수 두 번째 argument는 state의 초기값을 의미한다.
   // dispatch는 reducer에 action을 보내는 역할 그리고 reducer를 실행한다.
   // dispatch를 통해서 실행된 reducer에서 return 된 값이 state로 대체가 된다.
   // dispatch의 첫번 째 argument는 action에 할당된다.
