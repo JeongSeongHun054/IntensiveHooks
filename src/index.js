@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import App from "./components/App";
+import ToDosProvider from "./context";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <ToDosProvider>
     <App />
-  </React.StrictMode>,
+  </ToDosProvider>,
   document.getElementById("root")
 );

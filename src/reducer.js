@@ -1,14 +1,10 @@
-import { v4 as uuid } from "uuid/";
+import uuid from "uuid/v4";
+import { ADD, DEL, COMPLETE, UNCOMPLETE } from "./actions";
 
 export const initialState = {
   toDos: [],
   completed: [],
 };
-
-export const ADD = "add";
-export const DEL = "del";
-export const COMPLETE = "complete";
-export const UNCOMPLETE = "uncomplete";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -17,7 +13,6 @@ const reducer = (state, action) => {
         ...state,
         toDos: [...state.toDos, { text: action.payload, id: uuid() }],
       };
-
     case DEL:
       return {
         ...state,
